@@ -42,5 +42,13 @@ namespace Cucu_Cosmin_Lab7.Data
 		{
 			return _database.DeleteAsync(slist);
 		}
+public Task<int> SaveListProductAsync(ListProduct listp) 
+{ 
+	if (listp.ID != 0) 
+	{ 
+		return _database.UpdateAsync(listp);
 	}
+	else 
+	{ 
+		return _database.InsertAsync(listp);
 }
