@@ -10,17 +10,17 @@ public partial class ProductPage : ContentPage
 		InitializeComponent();
 		sl = slist;
 	}
-	async void OnSaveButtonClicked(object sender, EventArgs e) 
-	{ 
-		var product = (Product)BindingContext; 
-		await App.Database.SaveProductAsync(product); 
-		listView.ItemsSource = await App.Database.GetProductsAsync(); 
-	}
-	async void OnDeleteButtonClicked(object sender, EventArgs e) 
+	async void OnSaveButtonClicked(object sender, EventArgs e)
 	{
-		var product = (Product)BindingContext; 
-		await App.Database.DeleteProductAsync(product); 
-		listView.ItemsSource = await App.Database.GetProductsAsync(); 
+		var product = (Product)BindingContext;
+		await App.Database.SaveProductAsync(product);
+		listView.ItemsSource = await App.Database.GetProductsAsync();
+	}
+	async void OnDeleteButtonClicked(object sender, EventArgs e)
+	{
+		var product = (Product)BindingContext;
+		await App.Database.DeleteProductAsync(product);
+		listView.ItemsSource = await App.Database.GetProductsAsync();
 	}
 	protected override async void OnAppearing()
 	{
@@ -43,3 +43,4 @@ public partial class ProductPage : ContentPage
 			await Navigation.PopAsync();
 		}
 	}
+}
