@@ -3,8 +3,6 @@ using System.Collections.Generic;
 using System.Threading.Tasks;
 using Cucu_Cosmin_Lab7.Models;
 
-
-
 namespace Cucu_Cosmin_Lab7.Data
 {
 	public class ShoppingListDatabase
@@ -16,6 +14,7 @@ namespace Cucu_Cosmin_Lab7.Data
 			_database.CreateTableAsync<ShopList>().Wait();
 			_database.CreateTableAsync<Product>().Wait();
 			_database.CreateTableAsync<ListProduct>().Wait();
+			_database.CreateTableAsync<Shop>().Wait();
 		}
 		public Task<int> SaveProductAsync(Product product)
 		{
@@ -83,6 +82,9 @@ namespace Cucu_Cosmin_Lab7.Data
 			shoplistid);
 		}
 
-
+		internal Task SaveShopAsync(Shop shop)
+		{
+			throw new NotImplementedException();
+		}
 	}
 }
